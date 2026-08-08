@@ -10,6 +10,7 @@ const APP = {
   otpApiBase: 'https://al-ameen-otp.bonto.run',
   supportPhone: '07801234567',
   version: '1.4.0',
+   apiBase: 'https://al-ameen-backend.bonto.run',
 };
 
 /* Pre-seeded "existing" accounts so the login demo can succeed
