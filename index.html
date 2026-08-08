@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <title>الأمين للتوصيل | تطبيق الشحن والتوصيل</title>
+  <meta name="description" content="الأمين للتوصيل — خدمات شحن وتوصيل موثوقة داخل العراق وخارجه" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- PWA: manifest + theme -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#F1580C" />
+
+  <!-- PWA: دعم أندرويد (Add to Home Screen) -->
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- PWA: دعم آيفون (Add to Home Screen) -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="الأمين" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- Fonts: Cairo for display/headings, Tajawal for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (utility layer — design system lives in style.css) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#F1580C', dark: '#C7440A', light: '#FFF1E7' },
+            ink: '#1C1626',
+          },
+          fontFamily: {
+            display: ['Cairo', 'sans-serif'],
+            body: ['Tajawal', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-body">
+  <div id="app"></div>
+
+  <!-- App scripts (order matters: data → components → pages → router → app) -->
+  <script src="data.js"></script>
+  <script src="components.js"></script>
+  <script src="pages.js"></script>
+  <script src="router.js"></script>
+  <script src="app.js"></script>
+
+  <!-- تسجيل Service Worker حتى يشتغل التطبيق أوفلاين ويقدر ينضاف للشاشة الرئيسية -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js').catch((err) => {
+          console.warn('Service worker registration failed:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
