@@ -47,10 +47,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="font-body">
+  <!-- TEMP DEBUG CONSOLE — احذف هذا السطر بعد ما نحل المشكلة -->
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
   <div id="app"></div>
 
   <!-- App scripts (order matters: data → components → pages → router → app) -->
   <script src="data.js"></script>
+  <script src="api.js"></script>
   <script src="components.js"></script>
   <script src="pages.js"></script>
   <script src="router.js"></script>
