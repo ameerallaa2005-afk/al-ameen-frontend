@@ -8,9 +8,11 @@ const APP = {
   tagline: 'نوصل طلبك بأمان وسرعة',
   // رابط الباك-إند الذي يرسل ويتحقق من رمز OTP عبر واتساب (server.js)
   otpApiBase: 'https://al-ameen-otp.bonto.run',
+  // رابط باك-إند amin-backend الحقيقي (قاعدة البيانات + الطلبات + المحفظة + الإشعارات)
+  // بعد نشره على Bonto، بدّل هذا الرابط برابط تطبيقك: https://your-app.bonto.run
+  apiBase: 'https://amin-backend.bonto.run',
   supportPhone: '07801234567',
   version: '1.4.0',
-   apiBase: 'https://al-ameen-backend.bonto.run',
 };
 
 /* Pre-seeded "existing" accounts so the login demo can succeed
@@ -77,6 +79,7 @@ const AppState = {
   pendingAuth: null, // { mode: 'login'|'register', phone, name, ... }
   currentUser: null,
   settings: { language: 'ar', darkMode: false },
+  sessionRestore: Promise.resolve(), // يُستبدل عند الإقلاع بوعد يتحقق من التوكن المحفوظ
 };
 
 /* Utility: fake network delay */
